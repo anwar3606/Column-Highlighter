@@ -1,0 +1,171 @@
+{
+	"name": "column_heighlighter",
+	"displayName": "Column Heighlighter",
+	"description": "Highlight columns and show info onHover and in the StatusBar",
+	"version": "0.1.0",
+	"publisher": "Anwar",
+	"license": "MIT",
+	
+	"engines": {
+		"vscode": "^1.16.1"
+	},
+	"categories": [
+		"Formatters",
+		"Languages",
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "columnHeighLighter.statusBarInfo",
+				"title": "Show record info at the courser in the statusbar"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Columns Information",
+			"properties": {
+				"columnHeighLighter.colors": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"rgba(244,67,54,.1)",
+						"rgba(156,39,176,.1)",
+						"rgba(33,150,243,.1)",
+						"rgba(103,58,183,.1)",
+						"rgba(0,150,136,.1)",
+						"rgba(233,30,99,.1)",
+						"rgba(76,175,80,.1)",
+						"rgba(205,220,57,.1)",
+						"rgba(63,81,181,.1)",
+						"rgba(255,193,7,.1)",
+						"rgba(255,87,34,.1)",
+						"rgba(121,85,72,.1)",
+						"rgba(158,158,158,.1)"
+					],
+					"description": "Individual Color of a column"
+				},
+				"columnHeighLighter.languages": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"print"
+					],
+					"description": "Languages needed to formatted"
+				},
+				"columnHeighLighter.columns": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"required": true,
+								"description": "Name of the Field"
+							},
+							"startPos": {
+								"type": "number",
+								"required": true,
+								"description": "Start Position of this column"
+							},
+							"endPos": {
+								"type": "number",
+								"required": true,
+								"description": "End position of this column"
+							},
+							"length": {
+								"type": "number",
+								"required": true,
+								"description": "Length of this column"
+							},
+							"justification": {
+								"type": "string",
+								"description": "Can only be 'LEFT' or 'RIGHT'"
+							},
+							"description": {
+								"type": "string",
+								"description": "Description of this column to be show on hover and in the status bar"
+							}
+						}
+					},
+					"default": [
+						{
+							"name": "Column 1",
+							"length": 10,
+							"startPos": 1,
+							"endPos": 10,
+							"justification": "LEFT",
+							"description": "Column 1 Description"},
+						{
+							"name": "Column 2",
+							"length": 10,
+							"startPos": 11,
+							"endPos": 20,
+							"description": "Column 2 Description"},
+						{
+							"name": "Column 3",
+							"length": 10,
+							"startPos": 21,
+							"endPos": 30,
+							"description": "Column 3 Description"},
+						{
+							"name": "Column 4",
+							"length": 10,
+							"startPos": 31,
+							"endPos": 40,
+							"justification": "RIGHT",
+							"description": "Column 4 Description"},
+						{
+							"name": "Column 5",
+							"length": 10,
+							"startPos": 41,
+							"endPos": 50,
+							"justification": "LEFT",
+							"description": "Column 5 Description"},
+						{
+							"name": "Column 6",
+							"length": 10,
+							"startPos": 51,
+							"endPos": 60,
+							"justification": "RIGHT",
+							"description": "Column 6 Description"}
+					],
+					"description": "Individual Columns Information"
+				}
+			}
+		},
+		"languages": [
+			{
+				"id": "print",
+				"aliases": [
+					"PRINT",
+					"print"
+				],
+				"extensions": [
+					".PRINT",
+					".print"
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./ && npm run compile",
+		"compile": "tsc -watch -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.5.2",
+		"vscode": "^1.1.5",
+		"@types/node": "^7.0.43"
+	}
+}
