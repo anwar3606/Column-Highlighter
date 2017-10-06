@@ -13,3 +13,8 @@ This extension heighlight column based on your setting.
 
 ![palette](images/img1.jpg)
 ![palette](images/img2.jpg)
+
+# To Develope
+* Run `npm install`
+* Then `npm run compile`
+* Press Ctrl+F5
