@@ -12,7 +12,7 @@ interface WriteRecord {
 	description: string
 }
 
-let langStrings: string[] = <string[]>workspace.getConfiguration("columnHeighLighter").get('languages');
+let langStrings: string[] = <string[]>workspace.getConfiguration("columnHighLighter").get('languages');
 var supportedLanguages: DocumentFilter[] = [];
 langStrings.forEach(lang => {
 	let selector: DocumentFilter = {
@@ -23,13 +23,13 @@ langStrings.forEach(lang => {
 
 export function activate(context: ExtensionContext) {
 	//Getting the columns information from settings
-	var records = <WriteRecord[]>workspace.getConfiguration("columnHeighLighter").get("columns");
+	var records = <WriteRecord[]>workspace.getConfiguration("columnHighLighter").get("columns");
 	//Creating status bar
 	const status = window.createStatusBarItem(StatusBarAlignment.Right, 100);
-	status.command = 'columnHeighLighter.statusBarInfo';
+	status.command = 'columnHighLighter.statusBarInfo';
 	context.subscriptions.push(status);
 	context.subscriptions.push(window.onDidChangeTextEditorSelection(e => updateStatus(status, records)));
-	context.subscriptions.push(commands.registerCommand('columnHeighLighter.statusBarInfo', () => {
+	context.subscriptions.push(commands.registerCommand('columnHighLighter.statusBarInfo', () => {
 		selectField(records);
 	}));
 
@@ -37,7 +37,7 @@ export function activate(context: ExtensionContext) {
 	
 	/**Generation color looping though the color list defined inside.*/
 	function* getColor() {
-		const colors = <string[]>workspace.getConfiguration("columnHeighLighter").get("colors");
+		const colors = <string[]>workspace.getConfiguration("columnHighLighter").get("colors");
 		let currentPos = 0;
 		while (true) {
 			if (currentPos > colors.length - 1) {
