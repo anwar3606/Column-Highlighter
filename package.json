@@ -3,12 +3,12 @@
 	"displayName": "Column Highlighter",
 	"description": "Highlight columns and show info onHover and in the StatusBar",
 	"icon": "images/icon.ico",
-	"version": "0.1.2",
+	"version": "0.1.4",
 	"publisher": "anwar",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/anwar3606/Column-Heighlighter"
+		"url": "https://github.com/anwar3606/Column-Highlighter"
 	},
 	"engines": {
 		"vscode": "^1.16.1"
