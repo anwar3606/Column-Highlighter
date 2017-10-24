@@ -3,7 +3,7 @@
 	"displayName": "Column Highlighter",
 	"description": "Highlight columns and show info onHover and in the StatusBar",
 	"icon": "images/icon.ico",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"publisher": "anwar",
 	"license": "MIT",
 	"repository": {
@@ -25,7 +25,7 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "columnHeighLighter.statusBarInfo",
+				"command": "columnHighLighter.statusBarInfo",
 				"title": "Show record info at the courser in the statusbar"
 			}
 		],
@@ -33,7 +33,7 @@
 			"type": "object",
 			"title": "Columns Information",
 			"properties": {
-				"columnHeighLighter.colors": {
+				"columnHighLighter.colors": {
 					"type": "array",
 					"items": {
 						"type": "string"
@@ -55,7 +55,7 @@
 					],
 					"description": "Individual Color of a column"
 				},
-				"columnHeighLighter.languages": {
+				"columnHighLighter.languages": {
 					"type": "array",
 					"items": {
 						"type": "string"
@@ -65,7 +65,7 @@
 					],
 					"description": "Languages needed to formatted"
 				},
-				"columnHeighLighter.columns": {
+				"columnHighLighter.columns": {
 					"type": "array",
 					"items": {
 						"type": "object",
